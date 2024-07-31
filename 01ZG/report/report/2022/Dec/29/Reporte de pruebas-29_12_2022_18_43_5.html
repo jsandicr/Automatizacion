@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reporte de pruebas</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+    :root{
+        --body-font: 'Poppins', sans-serif;
+
+    }
+    body{
+        margin: var(--header-height) 0 0 0;
+        padding: 1rem 1rem 0;
+        font-family: var(--body-font);
+        background-color: #F9F6FD;
+    }    
+    .container{
+        background-color: white;
+        border-radius: 3%;
+    }
+    .imagenpwst img{
+        position:static;
+        right: 4%;
+        padding-top: 5%;
+    }
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<div class="imagenpwst">
+    <img src="https://i.postimg.cc/g2fdS2VC/Recurso-jpg.jpg"width="320"  align="right" >
+</div>    
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+4:Error  
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = 'Hola';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2 || level ==4) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    detail_class=document.getElementsByClassName('detail');
+    //console.log(detail_class.length)
+    if (level == 3) {
+        for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="Ver"
+        }
+    }
+    else{
+            for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="Ocultar"
+        }
+    }
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "Ver"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "Ocultar"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&');
+    s = s.replace(/</g,'<');
+    s = s.replace(/>/g,'>');
+    return s;
+}
+</script>
+<div class='heading'>
+<h2 style="font-family: Microsoft YaHei">Reporte de pruebas</h4>
+<p class='attribute'><strong>Desarrollado por : </strong> Area de Testing PWST</p>
+<p class='attribute'><strong>Fecha y hora de inicio : </strong> 2022-12-29 18:43:51</p>
+<p class='attribute'><strong>Duracion : </strong> 0:01:13.523131</p>
+<p class='attribute'><strong>Resultado : </strong> Total 8，Correctos 3 ，Errores 5 ，Taza de resultado 37.50%</p>
+
+<h3 class='description'>Detalles</h3>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>Resumen 37.50% </a>
+<a class="btn btn-warning" href='javascript:showCase(4)'>Errores 5 </a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>Fallidos 0 </a>
+<a class="btn btn-success" href='javascript:showCase(2)'>Correctos 3 </a>
+<a class="btn btn-info" href='javascript:showCase(3)'>Test realizados 8 </a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>Caso de Prueba</td>
+    <td>Total</td>
+    <td>Correctos</td>
+    <td>Fallido</td>
+    <td>Error</td>
+    <td>Detalles</td>
+    <td>Captura del error</td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>ZonasGeograficas.Test: Escenario 1 de Autorizaciones de Credito</td>
+    <td class="text-center">8</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">5</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',8)" class="detail" id='c1'>Detalles</a></td>
+    <td class="text-center"></td>
+</tr>
+
+<tr id='ft1_1' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>test</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_1' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>Error</button>
+    <div id='div_ft1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_1' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>Error</button>
+    <div id='div_ft1_1' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_1: 2022-12-29 18:43:52,476 - root - INFO -  Se abre el chrome
+2022-12-29 18:43:53,946 - root - INFO -  Entra a la URL
+2022-12-29 18:43:54,106 - root - INFO -  Maximiza la pantalla
+Traceback (most recent call last):
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\switch_to.py", line 88, in frame
+    frame_reference = self._driver.find_element(By.ID, frame_reference)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 861, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="mainFrame"]"}
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x0060C0B0]
+	(No symbol) [0x0060C22B]
+	(No symbol) [0x0063E612]
+	(No symbol) [0x006285D4]
+	(No symbol) [0x0063C9EB]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\switch_to.py", line 91, in frame
+    frame_reference = self._driver.find_element(By.NAME, frame_reference)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 861, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="mainFrame"]"}
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x0060C0B0]
+	(No symbol) [0x0060C22B]
+	(No symbol) [0x0063E612]
+	(No symbol) [0x006285D4]
+	(No symbol) [0x0063C9EB]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 32, in test
+    self.driver.switch_to.frame("mainFrame")
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\switch_to.py", line 93, in frame
+    raise NoSuchFrameException(frame_reference)
+selenium.common.exceptions.NoSuchFrameException: Message: mainFrame
+
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_000: Ingresa a la base de datos</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>Correcto</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>Correcto</button>
+    <div id='div_pt1_2' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_2: 2022-12-29 18:43:57,218 - root - INFO -  Escribe el usuario
+2022-12-29 18:43:57,336 - root - INFO -  Escribe la contraseña
+2022-12-29 18:43:57,432 - root - INFO -  Se dio clic en el boton ingresar
+2022-12-29 18:43:58,699 - root - INFO -  Ejecutar Enterprise
+2022-12-29 18:44:02,745 - root - INFO -  Cambia entre pestañas
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_001: Abre menu y ejecuta pantalla</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>Correcto</button>
+    <div id='div_pt1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>Correcto</button>
+    <div id='div_pt1_3' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_3: 2022-12-29 18:44:21,113 - root - INFO -  Abre la pantalla de Zonas Geográficas
+2022-12-29 18:44:21,691 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221229_18_44_21.png
+2022-12-29 18:44:21,803 - root - INFO -  La pantalla ejecutada es Zonas Geográficas.
+2022-12-29 18:44:21,887 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/20221229_18_44_21.png" target="_blank">
+            <img src="../../../../img/20221229_18_44_21.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_002: Abre la ventana de nuevo y crear un registro</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>Correcto</button>
+    <div id='div_pt1_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>Correcto</button>
+    <div id='div_pt1_4' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_4: 2022-12-29 18:44:22,475 - root - INFO -  Se abrio la pantalla para el ingreso de un registro nuevo.
+2022-12-29 18:44:22,519 - root - INFO -  El campo 'Codigo' si se encuentra visible.
+2022-12-29 18:44:22,560 - root - INFO -  El campo 'Codigo Alternativo' si se encuentra visible.
+2022-12-29 18:44:22,597 - root - INFO -  El campo 'Descrición' si se encuentra visible.
+2022-12-29 18:44:22,639 - root - INFO -  El campo 'Unidad Negocio' si se encuentra visible.
+2022-12-29 18:44:22,698 - root - INFO -  Ingresa el codigo del nuevo registro 
+2022-12-29 18:44:22,808 - root - INFO -  Ingresa el codigo alternativo del nuevo registro 
+2022-12-29 18:44:23,046 - root - INFO -  Ingresa la descripción del nuevo registro 
+2022-12-29 18:44:24,268 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221229_18_44_24.png
+2022-12-29 18:44:24,550 - root - INFO - Se hace el cambio de pestaña para continuar con el registro nuevo
+2022-12-29 18:44:25,178 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+2022-12-29 18:44:25,736 - root - INFO -  El campo 'Tipo Documento' si se encuentra visible.
+2022-12-29 18:44:25,772 - root - INFO -  El campo 'Cuenta Contable' si se encuentra visible.
+2022-12-29 18:44:25,808 - root - INFO -  El campo 'Centro Costo' si se encuentra visible.
+2022-12-29 18:44:29,500 - root - INFO -  Se presiona el boton 'Aceptar', para guardar el registro.
+2022-12-29 18:44:29,794 - root - INFO -  Se da clic en el boton Guardar; se debe crear un nuevo registro.
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/20221229_18_44_24.png" target="_blank">
+            <img src="../../../../img/20221229_18_44_24.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='ft1_5' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>test_003: Repetir el registro creado anteriormente</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_5' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_5'>Error</button>
+    <div id='div_ft1_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_5' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_5'>Error</button>
+    <div id='div_ft1_5' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_5: 2022-12-29 18:44:30,151 - root - INFO -  Se presiona el boton 'Refrescar', para crear un nuevo registro igual al anterior.
+2022-12-29 18:44:32,157 - root - ERROR - No se encontró el botón Nuevo, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-12-29 18:44:32,159 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221229_18_44_32.png
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\repetirregistro.py", line 37, in repetirregistro
+    Nuevo2 = self.wait.until(conditions.visibility((By.XPATH, Configuracion.btn_Nuevo)))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\support\wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 125, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 861, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x005C2D7A]
+	(No symbol) [0x0062BE7B]
+	(No symbol) [0x0063C196]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 74, in test_003
+    success = repetirregistro.repetirregistro.repetirregistro(self, conditions, Configuracion)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\repetirregistro.py", line 46, in repetirregistro
+    self.driver.get_screenshot_as_file(img_name)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 929, in get_screenshot_as_file
+    png = self.get_screenshot_as_png()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 965, in get_screenshot_as_png
+    return b64decode(self.get_screenshot_as_base64().encode("ascii"))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 977, in get_screenshot_as_base64
+    return self.execute(Command.SCREENSHOT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x005C2D7A]
+	(No symbol) [0x0062BE7B]
+	(No symbol) [0x0063C196]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/20221229_18_44_32.png" target="_blank">
+            <img src="../../../../img/20221229_18_44_32.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='ft1_6' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>test_004: Modificar el registro</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_6' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_6'>Error</button>
+    <div id='div_ft1_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_6' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_6'>Error</button>
+    <div id='div_ft1_6' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_6: 2022-12-29 18:44:32,196 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-12-29 18:44:32,198 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221229_18_44_32.png
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\modificarregistro.py", line 21, in modificarregistro
+    Refresca2 = self.wait.until(conditions.visibility((By.XPATH, Configuracion.btn_Refresca)))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\support\wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 125, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 861, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x005C2D7A]
+	(No symbol) [0x0062BE7B]
+	(No symbol) [0x0063C196]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 102, in test_004
+    success = modificarregistro.modificarregistro.modificarregistro(self, conditions, Configuracion)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\modificarregistro.py", line 32, in modificarregistro
+    self.driver.get_screenshot_as_file(img_name)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 929, in get_screenshot_as_file
+    png = self.get_screenshot_as_png()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 965, in get_screenshot_as_png
+    return b64decode(self.get_screenshot_as_base64().encode("ascii"))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 977, in get_screenshot_as_base64
+    return self.execute(Command.SCREENSHOT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x005C2D7A]
+	(No symbol) [0x0062BE7B]
+	(No symbol) [0x0063C196]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/20221229_18_44_32.png" target="_blank">
+            <img src="../../../../img/20221229_18_44_32.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='ft1_7' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>test_005: Eliminar el registro creado</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_7' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_7'>Error</button>
+    <div id='div_ft1_7' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_7' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_7'>Error</button>
+    <div id='div_ft1_7' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_7: 2022-12-29 18:44:32,220 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-12-29 18:44:32,221 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221229_18_44_32.png
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\eliminarregistro.py", line 20, in eliminarregistro
+    Refresca3 = self.wait.until(conditions.visibility((By.XPATH, Configuracion.btn_Refresca)))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\support\wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 125, in _predicate
+    return _element_if_visible(driver.find_element(*locator))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 861, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x005C2D7A]
+	(No symbol) [0x0062BE7B]
+	(No symbol) [0x0063C196]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 130, in test_005
+    success = eliminarregistro.eliminarregistro.eliminarregistro(self, conditions, Configuracion)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\eliminarregistro.py", line 30, in eliminarregistro
+    self.driver.get_screenshot_as_file(img_name)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 929, in get_screenshot_as_file
+    png = self.get_screenshot_as_png()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 965, in get_screenshot_as_png
+    return b64decode(self.get_screenshot_as_base64().encode("ascii"))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 977, in get_screenshot_as_base64
+    return self.execute(Command.SCREENSHOT)["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x005C2D7A]
+	(No symbol) [0x0062BE7B]
+	(No symbol) [0x0063C196]
+	(No symbol) [0x00628386]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/20221229_18_44_32.png" target="_blank">
+            <img src="../../../../img/20221229_18_44_32.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='ft1_8' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>test_006: Cerrar_Navegador</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_8' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_8'>Error</button>
+    <div id='div_ft1_8' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_8' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_8'>Error</button>
+    <div id='div_ft1_8' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_8: Traceback (most recent call last):
+  File "C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 148, in test_006
+    self.driver.close()
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 561, in close
+    self.execute(Command.CLOSE)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 444, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\pwst\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 249, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: disconnected: unable to connect to renderer
+  (failed to check if window was closed: disconnected: unable to connect to renderer)
+  (Session info: chrome=108.0.5359.125)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0075F243]
+	(No symbol) [0x006E7FD1]
+	(No symbol) [0x005DD04D]
+	(No symbol) [0x005CD3F8]
+	(No symbol) [0x005C14E4]
+	(No symbol) [0x005C2344]
+	(No symbol) [0x006317A5]
+	(No symbol) [0x00628553]
+	(No symbol) [0x0060163C]
+	(No symbol) [0x0060269D]
+	GetHandleVerifier [0x009F9A22+2655074]
+	GetHandleVerifier [0x009ECA24+2601828]
+	GetHandleVerifier [0x00808C0A+619850]
+	GetHandleVerifier [0x00807830+614768]
+	(No symbol) [0x006F05FC]
+	(No symbol) [0x006F5968]
+	(No symbol) [0x006F5A55]
+	(No symbol) [0x0070051B]
+	BaseThreadInitThunk [0x762700F9+25]
+	RtlGetAppContainerNamedObjectPath [0x76FD7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x76FD7B8E+238]
+
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>Caso de prueba</td>
+    <td>8</td>
+    <td>3</td>
+    <td>0</td>
+    <td>5</td>
+    <td>Taza de resultado：37.50%</td>
+    <td> <a href="" target="_blank"></a></td>
+</tr>
+</table>
+
+<div id='ending'> </div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>

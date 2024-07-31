@@ -1,0 +1,60 @@
+2022-12-26 10:48:41,108 - root - INFO -  Se abre el chrome
+2022-12-26 10:48:42,220 - root - INFO -  Entra a la URL
+2022-12-26 10:48:42,352 - root - INFO -  Maximiza la pantalla
+2022-12-26 10:48:45,454 - root - INFO -  Escribe el usuario
+2022-12-26 10:48:45,565 - root - INFO -  Escribe la contraseña
+2022-12-26 10:48:45,663 - root - INFO -  Se dio clic en el boton ingresar
+2022-12-26 10:48:46,429 - root - INFO -  Ejecutar Enterprise
+2022-12-26 10:48:50,479 - root - INFO -  Cambia entre pestañas
+2022-12-26 10:48:54,551 - root - INFO -  Abre la pantalla de Zonas Geográficas
+2022-12-26 10:48:55,325 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221226_10_48_55.png
+2022-12-26 10:48:55,480 - root - INFO -  La pantalla ejecutada es Zonas Geográficas.
+2022-12-26 10:48:55,586 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+2022-12-26 10:48:56,152 - root - INFO -  Se abrio la pantalla para el ingreso de un registro nuevo.
+2022-12-26 10:48:56,211 - root - INFO -  El campo 'Codigo' si se encuentra visible.
+2022-12-26 10:48:56,268 - root - INFO -  El campo 'Codigo Alternativo' si se encuentra visible.
+2022-12-26 10:48:56,311 - root - INFO -  El campo 'Descrición' si se encuentra visible.
+2022-12-26 10:48:56,357 - root - INFO -  El campo 'Unidad Negocio' si se encuentra visible.
+2022-12-26 10:48:56,425 - root - INFO -  Ingresa el codigo del nuevo registro 
+2022-12-26 10:48:56,553 - root - INFO -  Ingresa el codigo alternativo del nuevo registro 
+2022-12-26 10:48:56,849 - root - INFO -  Ingresa la descripción del nuevo registro 
+2022-12-26 10:48:58,064 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221226_10_48_58.png
+2022-12-26 10:48:58,367 - root - INFO - Se hace el cambio de pestaña para continuar con el registro nuevo
+2022-12-26 10:48:58,960 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+2022-12-26 10:48:59,529 - root - INFO -  El campo 'Tipo Documento' si se encuentra visible.
+2022-12-26 10:48:59,570 - root - INFO -  El campo 'Cuenta Contable' si se encuentra visible.
+2022-12-26 10:48:59,611 - root - INFO -  El campo 'Centro Costo' si se encuentra visible.
+2022-12-26 10:49:03,218 - root - INFO -  Se presiona el boton 'Aceptar', para guardar el registro.
+2022-12-26 10:49:03,516 - root - INFO -  Se da clic en el boton Guardar; se debe crear un nuevo registro.
+2022-12-26 10:49:03,866 - root - INFO -  Se presiona el boton 'Refrescar', para crear un nuevo registro igual al anterior.
+2022-12-26 10:49:05,965 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro igual al anterior.
+2022-12-26 10:49:06,549 - root - INFO -  Se abrio la pantalla para el ingreso de un registro nuevo.
+2022-12-26 10:49:06,586 - root - INFO -  El campo 'Codigo' si se encuentra visible.
+2022-12-26 10:49:06,622 - root - INFO -  El campo 'Codigo alternativo' si se encuentra visible.
+2022-12-26 10:49:06,676 - root - INFO -  El campo 'Descrición' si se encuentra visible.
+2022-12-26 10:49:06,712 - root - INFO -  El campo 'Unidad Negocio' si se encuentra visible.
+2022-12-26 10:49:06,768 - root - INFO -  Ingresa el codigo del nuevo registro 
+2022-12-26 10:49:06,868 - root - INFO -  Ingresa el codigo alternativo del nuevo registro 
+2022-12-26 10:49:07,081 - root - INFO -  Ingresa la descripción del nuevo registro 
+2022-12-26 10:49:08,619 - root - INFO -  Se da clic en el boton Guardar; NO se debe crear un nuevo registro.
+2022-12-26 10:49:10,621 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221226_10_49_10.png
+2022-12-26 10:49:10,848 - root - INFO -  Se presiona el boton 'Cerrar', para cerrar el mensaje de duplicidad de llave primaria
+2022-12-26 10:49:11,526 - root - INFO -  Se presiona el boton 'Cerrar', para cerrar la ventana
+2022-12-26 10:49:11,719 - root - INFO -  Se presiona el boton 'Refrescar', para crear un nuevo registro igual al anterior.
+2022-12-26 10:49:14,391 - root - INFO -  Se da clic en el registro creado, para proceder a modificarlo.
+2022-12-26 10:49:15,047 - root - INFO -  Se modifica el contenido del campo Descripcion
+2022-12-26 10:49:15,306 - root - INFO -  Se modifica el contenido del campo Descripcion
+2022-12-26 10:49:16,588 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221226_10_49_16.png
+2022-12-26 10:49:16,850 - root - INFO - Se hace el cambio de pestaña para continuar con el registro nuevo
+2022-12-26 10:49:18,027 - root - INFO -  Se da clic en el registro creado, para proceder a modificarlo.
+2022-12-26 10:49:22,465 - root - INFO -  Se presiona el boton 'Aceptar', para guardar el registro.
+2022-12-26 10:49:22,745 - root - INFO -  Se da clic en el boton Guardar; se debe modificar la informacion del registro.
+2022-12-26 10:49:23,101 - root - INFO -  Se presiona el boton 'Refrescar', para proceder a eliminar el registro.
+2022-12-26 10:49:26,727 - root - INFO -  Se da clic en el registro creado, para proceder a eliminarlo.
+2022-12-26 10:49:26,814 - root - INFO -  Se presiona el boton 'Eliminar', para eliminar el registro.
+2022-12-26 10:49:26,815 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221226_10_49_26.png
+2022-12-26 10:49:29,960 - root - INFO -  Captura: C:\xampp\htdocs\Versiones\automatizaciones\AutoPWST\01ZG\report\img  screen：20221226_10_49_29.png
+2022-12-26 10:49:30,186 - root - INFO -  Se confirma el eliminado del registro
+2022-12-26 10:49:30,512 - root - INFO -  Se presiona el boton 'Refrescar', para crear un nuevo registro igual al anterior.
+2022-12-26 10:49:32,616 - root - INFO -  Se presiona el boton 'Cerrar', para cerrar la pantalla de Categorias Fiscales.
+2022-12-26 10:49:37,001 - root - INFO -  Se cierra chrome

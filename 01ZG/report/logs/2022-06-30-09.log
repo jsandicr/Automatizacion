@@ -1,0 +1,63 @@
+2022-06-30 09:42:11,948 - root - INFO -  Se abre el chrome
+2022-06-30 09:42:16,898 - root - INFO -  Entra a la URL
+2022-06-30 09:42:17,022 - root - INFO -  Maximiza la pantalla
+2022-06-30 09:42:20,070 - root - INFO -  Cambia al frame
+2022-06-30 09:42:23,167 - root - INFO -  Escribe el usuario
+2022-06-30 09:42:23,242 - root - INFO -  Escribe la contraseña
+2022-06-30 09:42:23,349 - root - INFO -  Se dio clic en el boton ingresar
+2022-06-30 09:42:26,325 - root - INFO -  Ejecutar Enterprise
+2022-06-30 09:42:30,376 - root - INFO -  Cambia entre pestañas
+2022-06-30 09:42:44,310 - root - INFO -  Se presiona el boton 'Cerrar Error', para crear un nuevo registro igual al anterior.
+2022-06-30 09:42:47,398 - root - INFO -  Abre el menu completo
+2022-06-30 09:43:00,326 - root - INFO -  Abre la pantalla de Zonas Geográficas
+2022-06-30 09:43:00,384 - root - INFO -  La pantalla ejecutada es Zonas Geográficas.
+2022-06-30 09:43:00,463 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+2022-06-30 09:43:01,555 - root - INFO -  Se abrio la pantalla para el ingreso de un registro nuevo.
+2022-06-30 09:43:01,604 - root - INFO -  El campo 'Codigo' si se encuentra visible.
+2022-06-30 09:43:01,647 - root - INFO -  El campo 'Codigo Alternativo' si se encuentra visible.
+2022-06-30 09:43:01,686 - root - INFO -  El campo 'Descrición' si se encuentra visible.
+2022-06-30 09:43:03,748 - root - INFO -  El campo 'Unidad Negocio' si se encuentra visible.
+2022-06-30 09:43:05,850 - root - INFO -  Ingresa el codigo del nuevo registro 
+2022-06-30 09:43:08,941 - root - INFO -  Ingresa el codigo alternativo del nuevo registro 
+2022-06-30 09:43:12,101 - root - INFO -  Ingresa la descripción del nuevo registro 
+2022-06-30 09:43:25,136 - root - INFO - Se hace el cambio de pestaña para continuar con el registro nuevo
+2022-06-30 09:43:30,248 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+2022-06-30 09:43:30,302 - root - INFO -  El campo 'Tipo Documento' si se encuentra visible.
+2022-06-30 09:43:30,349 - root - INFO -  El campo 'Cuenta Contable' si se encuentra visible.
+2022-06-30 09:43:30,397 - root - INFO -  El campo 'Centro Costo' si se encuentra visible.
+2022-06-30 09:44:01,749 - root - INFO -  Se presiona el boton 'Aceptar', para guardar el registro.
+2022-06-30 09:44:01,844 - root - INFO -  Se da clic en el boton Guardar; se debe crear un nuevo registro.
+2022-06-30 09:44:07,950 - root - INFO -  Se presiona el boton 'Refrescar', para crear un nuevo registro igual al anterior.
+2022-06-30 09:44:10,049 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro igual al anterior.
+2022-06-30 09:44:11,107 - root - INFO -  Se abrio la pantalla para el ingreso de un registro nuevo.
+2022-06-30 09:44:11,160 - root - INFO -  El campo 'Codigo' si se encuentra visible.
+2022-06-30 09:44:11,208 - root - ERROR - El campo 'Codigo alternativo' no se muestra visible, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:44:11,209 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_44_11.png
+2022-06-30 09:44:12,417 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:44:12,418 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_44_12.png
+2022-06-30 09:44:13,607 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:44:13,608 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_44_13.png
+2022-06-30 09:44:15,812 - root - INFO -  Se cierra chrome
+2022-06-30 09:47:42,034 - root - INFO -  Se abre el chrome
+2022-06-30 09:47:45,798 - root - INFO -  Entra a la URL
+2022-06-30 09:47:45,921 - root - INFO -  Maximiza la pantalla
+2022-06-30 09:47:48,974 - root - INFO -  Cambia al frame
+2022-06-30 09:47:52,059 - root - INFO -  Escribe el usuario
+2022-06-30 09:47:52,133 - root - INFO -  Escribe la contraseña
+2022-06-30 09:47:52,236 - root - INFO -  Se dio clic en el boton ingresar
+2022-06-30 09:47:55,712 - root - INFO -  Ejecutar Enterprise
+2022-06-30 09:47:59,765 - root - INFO -  Cambia entre pestañas
+2022-06-30 09:48:14,391 - root - INFO -  Se presiona el boton 'Cerrar Error', para crear un nuevo registro igual al anterior.
+2022-06-30 09:48:17,484 - root - INFO -  Abre el menu completo
+2022-06-30 09:48:30,398 - root - INFO -  Abre la pantalla de Zonas Geográficas
+2022-06-30 09:48:30,450 - root - INFO -  La pantalla ejecutada es Zonas Geográficas.
+2022-06-30 09:48:30,524 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+2022-06-30 09:48:31,627 - root - ERROR - La pantalla ejecutada no es correcta, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:48:31,628 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_48_31.png
+2022-06-30 09:48:32,838 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:48:32,839 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_48_32.png
+2022-06-30 09:48:34,035 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:48:34,036 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_48_34.png
+2022-06-30 09:48:35,232 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:48:35,233 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_48_35.png
+2022-06-30 09:48:37,441 - root - INFO -  Se cierra chrome

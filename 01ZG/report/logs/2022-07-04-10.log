@@ -1,0 +1,8 @@
+2022-07-04 10:15:47,732 - root - INFO -  Se abre el chrome
+2022-07-04 10:15:56,172 - root - INFO -  Entra a la URL
+2022-07-04 10:15:56,299 - root - INFO -  Maximiza la pantalla
+2022-07-04 10:15:59,405 - root - INFO -  Cambia al frame
+2022-07-04 10:16:02,534 - root - INFO -  Escribe el usuario
+2022-07-04 10:16:02,736 - root - INFO -  Escribe la contraseña
+2022-07-04 10:16:02,948 - root - INFO -  Se dio clic en el boton ingresar
+2022-07-04 10:16:08,467 - root - INFO -  Ejecutar Enterprise

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reporte de pruebas</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+    :root{
+        --body-font: 'Poppins', sans-serif;
+
+    }
+    body{
+        margin: var(--header-height) 0 0 0;
+        padding: 1rem 1rem 0;
+        font-family: var(--body-font);
+        background-color: #F9F6FD;
+    }    
+    .container{
+        background-color: white;
+        border-radius: 3%;
+    }
+    .imagenpwst img{
+        position:static;
+        right: 4%;
+        padding-top: 5%;
+    }
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<div class="imagenpwst">
+    <img src="https://i.postimg.cc/g2fdS2VC/Recurso-jpg.jpg"width="320"  align="right" >
+</div>    
+<script language="javascript" type="text/javascript">
+output_list = Array();
+/*level 
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+4:Error  
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = 'Hola';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2 || level ==4) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+    detail_class=document.getElementsByClassName('detail');
+    //console.log(detail_class.length)
+    if (level == 3) {
+        for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="Ver"
+        }
+    }
+    else{
+            for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="Ocultar"
+        }
+    }
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "Ver"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "Ocultar"
+        }
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&');
+    s = s.replace(/</g,'<');
+    s = s.replace(/>/g,'>');
+    return s;
+}
+</script>
+<div class='heading'>
+<h2 style="font-family: Microsoft YaHei">Reporte de pruebas</h4>
+<p class='attribute'><strong>Desarrollado por : </strong> Area de Testing PWST</p>
+<p class='attribute'><strong>Fecha y hora de inicio : </strong> 2022-06-30 09:42:10</p>
+<p class='attribute'><strong>Duracion : </strong> 0:02:04.976954</p>
+<p class='attribute'><strong>Resultado : </strong> Total 9，Correctos 6 ，Fallidos 1 ，Errores 2 ，Taza de resultado 66.67%</p>
+
+<h3 class='description'>Detalles</h3>
+</div>
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>Resumen 66.67% </a>
+<a class="btn btn-warning" href='javascript:showCase(4)'>Errores 2 </a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>Fallidos 1 </a>
+<a class="btn btn-success" href='javascript:showCase(2)'>Correctos 6 </a>
+<a class="btn btn-info" href='javascript:showCase(3)'>Test realizados 9 </a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>Caso de Prueba</td>
+    <td>Total</td>
+    <td>Correctos</td>
+    <td>Fallido</td>
+    <td>Error</td>
+    <td>Detalles</td>
+    <td>Captura del error</td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>ZonasGeograficas.Test: Escenario 1 de Unidades de Artículos</td>
+    <td class="text-center">9</td>
+    <td class="text-center">6</td>
+    <td class="text-center">1</td>
+    <td class="text-center">2</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',9)" class="detail" id='c1'>Detalles</a></td>
+    <td class="text-center"></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>Correcto</button>
+    <div id='div_pt1_1' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>Correcto</button>
+    <div id='div_pt1_1' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_1: 2022-06-30 09:42:11,948 - root - INFO -  Se abre el chrome
+2022-06-30 09:42:16,898 - root - INFO -  Entra a la URL
+2022-06-30 09:42:17,022 - root - INFO -  Maximiza la pantalla
+2022-06-30 09:42:20,070 - root - INFO -  Cambia al frame
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_000: Ingresa a la base de datos</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>Correcto</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>Correcto</button>
+    <div id='div_pt1_2' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_2: 2022-06-30 09:42:23,167 - root - INFO -  Escribe el usuario
+2022-06-30 09:42:23,242 - root - INFO -  Escribe la contraseña
+2022-06-30 09:42:23,349 - root - INFO -  Se dio clic en el boton ingresar
+2022-06-30 09:42:26,325 - root - INFO -  Ejecutar Enterprise
+2022-06-30 09:42:30,376 - root - INFO -  Cambia entre pestañas
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_001: Cierra el error del la base</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>Correcto</button>
+    <div id='div_pt1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>Correcto</button>
+    <div id='div_pt1_3' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_3: 2022-06-30 09:42:44,310 - root - INFO -  Se presiona el boton 'Cerrar Error', para crear un nuevo registro igual al anterior.
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_4' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_002: Abre menu y ejecuta pantalla</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_4' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_4'>Correcto</button>
+    <div id='div_pt1_4' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_4' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_4'>Correcto</button>
+    <div id='div_pt1_4' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_4: 2022-06-30 09:42:47,398 - root - INFO -  Abre el menu completo
+2022-06-30 09:43:00,326 - root - INFO -  Abre la pantalla de Zonas Geográficas
+2022-06-30 09:43:00,384 - root - INFO -  La pantalla ejecutada es Zonas Geográficas.
+2022-06-30 09:43:00,463 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_5' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_003: Abre la ventana de nuevo y crear un registro</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_5' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_5'>Correcto</button>
+    <div id='div_pt1_5' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_5' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_5'>Correcto</button>
+    <div id='div_pt1_5' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_5: 2022-06-30 09:43:01,555 - root - INFO -  Se abrio la pantalla para el ingreso de un registro nuevo.
+2022-06-30 09:43:01,604 - root - INFO -  El campo 'Codigo' si se encuentra visible.
+2022-06-30 09:43:01,647 - root - INFO -  El campo 'Codigo Alternativo' si se encuentra visible.
+2022-06-30 09:43:01,686 - root - INFO -  El campo 'Descrición' si se encuentra visible.
+2022-06-30 09:43:03,748 - root - INFO -  El campo 'Unidad Negocio' si se encuentra visible.
+2022-06-30 09:43:05,850 - root - INFO -  Ingresa el codigo del nuevo registro 
+2022-06-30 09:43:08,941 - root - INFO -  Ingresa el codigo alternativo del nuevo registro 
+2022-06-30 09:43:12,101 - root - INFO -  Ingresa la descripción del nuevo registro 
+2022-06-30 09:43:25,136 - root - INFO - Se hace el cambio de pestaña para continuar con el registro nuevo
+2022-06-30 09:43:30,248 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro.
+2022-06-30 09:43:30,302 - root - INFO -  El campo 'Tipo Documento' si se encuentra visible.
+2022-06-30 09:43:30,349 - root - INFO -  El campo 'Cuenta Contable' si se encuentra visible.
+2022-06-30 09:43:30,397 - root - INFO -  El campo 'Centro Costo' si se encuentra visible.
+2022-06-30 09:44:01,749 - root - INFO -  Se presiona el boton 'Aceptar', para guardar el registro.
+2022-06-30 09:44:01,844 - root - INFO -  Se da clic en el boton Guardar; se debe crear un nuevo registro.
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='ft1_6' class='none'>
+    <td class='failCase' width='300px'><div class='testcase'>test_004: Repetir el registro creado anteriormente</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_6' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_6'>Skip</button>
+    <div id='div_ft1_6' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_6' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_6'>Skip</button>
+    <div id='div_ft1_6' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_6: 2022-06-30 09:44:07,950 - root - INFO -  Se presiona el boton 'Refrescar', para crear un nuevo registro igual al anterior.
+2022-06-30 09:44:10,049 - root - INFO -  Se presiona el boton 'Nuevo', para crear un nuevo registro igual al anterior.
+2022-06-30 09:44:11,107 - root - INFO -  Se abrio la pantalla para el ingreso de un registro nuevo.
+2022-06-30 09:44:11,160 - root - INFO -  El campo 'Codigo' si se encuentra visible.
+2022-06-30 09:44:11,208 - root - ERROR - El campo 'Codigo alternativo' no se muestra visible, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:44:11,209 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_44_11.png
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 54, in test_004
+    return repetirregistro.repetirregistro(self)
+  File "C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\testCase\repetirregistro.py", line 82, in repetirregistro
+    self.assertEqual("Código alternativo", Codigo_Alter, "Campo visible")
+AssertionError: 'Código alternativo' != 'Código Alternativo'
+- Código alternativo
+?        ^
++ Código Alternativo
+?        ^
+ : Campo visible
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/ 20220630_09_44_11.png" target="_blank">
+            <img src="../../../../img/ 20220630_09_44_11.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='ft1_7' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>test_005: Modificar el registro</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_7' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_7'>Error</button>
+    <div id='div_ft1_7' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_7' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_7'>Error</button>
+    <div id='div_ft1_7' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_7: 2022-06-30 09:44:12,417 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:44:12,418 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_44_12.png
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 58, in test_005
+    return modificarregistro.modificarregistro(self)
+  File "C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\testCase\modificarregistro.py", line 23, in modificarregistro
+    Refresca2.click()
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\webelement.py", line 89, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\webelement.py", line 773, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 430, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;div tabindex="16" id="_094DB62E3E3A4B6FABB031DA9FD8CD0E__refresh_element" name="_094DB62E3E3A4B6FABB031DA9FD8CD0E__refresh_element"&gt;...&lt;/div&gt; is not clickable at point (56, 88). Other element would receive the click: &lt;ui-window id="_094DB62E3E3A4B6FABB031DA9FD8CD0E" formid="_094DB62E3E3A4B6FABB031DA9FD8CD0E" name="_094DB62E3E3A4B6FABB031DA9FD8CD0E" class="ui-window-toolbar child ui-dockedwindow ui-window ui-window-not-maximizable ui-window-not-minimizable ui-background-window" uistyle="child ui-dockedwindow" height="1ru" visible="true" enabled="true" style="height: 534px; width: 800px; left: 0px; top: 0px;"&gt;...&lt;/ui-window&gt;
+  (Session info: chrome=103.0.5060.66)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00E26463+2188387]
+	Ordinal0 [0x00DBE461+1762401]
+	Ordinal0 [0x00CD3D78+802168]
+	Ordinal0 [0x00D07F9B+1015707]
+	Ordinal0 [0x00D05F68+1007464]
+	Ordinal0 [0x00D03C6B+998507]
+	Ordinal0 [0x00D029D9+993753]
+	Ordinal0 [0x00CF8613+951827]
+	Ordinal0 [0x00D1C7DC+1099740]
+	Ordinal0 [0x00CF7FF4+950260]
+	Ordinal0 [0x00D1C9F4+1100276]
+	Ordinal0 [0x00D2CC22+1166370]
+	Ordinal0 [0x00D1C5F6+1099254]
+	Ordinal0 [0x00CF6BE0+945120]
+	Ordinal0 [0x00CF7AD6+948950]
+	GetHandleVerifier [0x010C71F2+2712546]
+	GetHandleVerifier [0x010B886D+2652765]
+	GetHandleVerifier [0x00EB002A+520730]
+	GetHandleVerifier [0x00EAEE06+516086]
+	Ordinal0 [0x00DC468B+1787531]
+	Ordinal0 [0x00DC8E88+1805960]
+	Ordinal0 [0x00DC8F75+1806197]
+	Ordinal0 [0x00DD1DF1+1842673]
+	BaseThreadInitThunk [0x76FA6739+25]
+	RtlGetFullPathName_UEx [0x77768FEF+1215]
+	RtlGetFullPathName_UEx [0x77768FBD+1165]
+
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/ 20220630_09_44_12.png" target="_blank">
+            <img src="../../../../img/ 20220630_09_44_12.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='ft1_8' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>test_007: Eliminar el registro creado</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_8' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_8'>Error</button>
+    <div id='div_ft1_8' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_8' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_ft1_8'>Error</button>
+    <div id='div_ft1_8' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_8: 2022-06-30 09:44:13,607 - root - ERROR - No se encontró el botón Refrescar, revise si el xpath sigue siendo el mismo, para mas detalles del error consulte el reporte
+2022-06-30 09:44:13,608 - root - INFO -  Captura: C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\report\img  screen：20220630_09_44_13.png
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\testCase\ZonasGeograficas.py", line 62, in test_007
+    return eliminarregistro.eliminarregistro(self)
+  File "C:\xampp\htdocs\automatizaciones\AutoPWST\01ZG\testCase\eliminarregistro.py", line 22, in eliminarregistro
+    Refresca3.click()
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\webelement.py", line 89, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\webelement.py", line 773, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 430, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\PWST\Downloads\Auto2.0\venv\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;div tabindex="16" id="_094DB62E3E3A4B6FABB031DA9FD8CD0E__refresh_element" name="_094DB62E3E3A4B6FABB031DA9FD8CD0E__refresh_element"&gt;...&lt;/div&gt; is not clickable at point (56, 88). Other element would receive the click: &lt;ui-window id="_094DB62E3E3A4B6FABB031DA9FD8CD0E" formid="_094DB62E3E3A4B6FABB031DA9FD8CD0E" name="_094DB62E3E3A4B6FABB031DA9FD8CD0E" class="ui-window-toolbar child ui-dockedwindow ui-window ui-window-not-maximizable ui-window-not-minimizable ui-background-window" uistyle="child ui-dockedwindow" height="1ru" visible="true" enabled="true" style="height: 534px; width: 800px; left: 0px; top: 0px;"&gt;...&lt;/ui-window&gt;
+  (Session info: chrome=103.0.5060.66)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00E26463+2188387]
+	Ordinal0 [0x00DBE461+1762401]
+	Ordinal0 [0x00CD3D78+802168]
+	Ordinal0 [0x00D07F9B+1015707]
+	Ordinal0 [0x00D05F68+1007464]
+	Ordinal0 [0x00D03C6B+998507]
+	Ordinal0 [0x00D029D9+993753]
+	Ordinal0 [0x00CF8613+951827]
+	Ordinal0 [0x00D1C7DC+1099740]
+	Ordinal0 [0x00CF7FF4+950260]
+	Ordinal0 [0x00D1C9F4+1100276]
+	Ordinal0 [0x00D2CC22+1166370]
+	Ordinal0 [0x00D1C5F6+1099254]
+	Ordinal0 [0x00CF6BE0+945120]
+	Ordinal0 [0x00CF7AD6+948950]
+	GetHandleVerifier [0x010C71F2+2712546]
+	GetHandleVerifier [0x010B886D+2652765]
+	GetHandleVerifier [0x00EB002A+520730]
+	GetHandleVerifier [0x00EAEE06+516086]
+	Ordinal0 [0x00DC468B+1787531]
+	Ordinal0 [0x00DC8E88+1805960]
+	Ordinal0 [0x00DC8F75+1806197]
+	Ordinal0 [0x00DD1DF1+1842673]
+	BaseThreadInitThunk [0x76FA6739+25]
+	RtlGetFullPathName_UEx [0x77768FEF+1215]
+	RtlGetFullPathName_UEx [0x77768FBD+1165]
+
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="../../../../img/ 20220630_09_44_13.png" target="_blank">
+            <img src="../../../../img/ 20220630_09_44_13.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='pt1_9' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>test_008: Cerrar_Navegador</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_9' type="button"  class="btn btn-primary btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_9'>Correcto</button>
+    <div id='div_pt1_9' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_9' type="button"  class="btn btn-primary btn-xs" data-toggle="collapse" data-target='#div_pt1_9'>Correcto</button>
+    <div id='div_pt1_9' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_9: 2022-06-30 09:44:15,812 - root - INFO -  Se cierra chrome
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a hidden="hidden" href="" target="_blank">
+            <img src="" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>Caso de prueba</td>
+    <td>9</td>
+    <td>6</td>
+    <td>1</td>
+    <td>2</td>
+    <td>Taza de resultado：66.67%</td>
+    <td> <a href="" target="_blank"></a></td>
+</tr>
+</table>
+
+<div id='ending'> </div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+</body>
+</html>
